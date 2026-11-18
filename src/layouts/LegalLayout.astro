@@ -1,0 +1,54 @@
+---
+import Base from './Base.astro';
+import { SITE, NAME, EMAIL, PHONE_DISPLAY } from '../data/site';
+interface Props { title: string; heading: string; description: string; path: string; updated: string; }
+const { title, heading, description, path, updated } = Astro.props;
+const url = SITE + path;
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      url,
+      name: title,
+      description,
+      inLanguage: 'en-US',
+      isPartOf: { '@id': `${SITE}/#website` },
+      about: { '@id': `${SITE}/#organization` },
+      dateModified: updated,
+      breadcrumb: { '@id': `${url}#breadcrumb` },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${url}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: heading, item: url },
+      ],
+    },
+  ],
+};
+---
+<Base title={title} description={description} path={path} preloadHero={false}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(graph).replace(/</g, '\\u003c')} />
+  <header class="legal-nav">
+    <a class="logo" href="./" aria-label="Journeys by Jaz, home"><img src="./img/logo.webp" alt="" width="46" height="46" /><span class="brand">{NAME}</span></a>
+    <a class="legal-back" href="./">← Back to home</a>
+  </header>
+  <main class="legal-page">
+    <article>
+      <p class="legal-kicker">Legal</p>
+      <h1>{heading}</h1>
+      <p class="legal-updated">Last updated: {new Date(updated + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
+      <slot />
+      <p class="legal-contact"><strong>Questions?</strong> Contact {NAME} at <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or <a href="tel:+17138870363">{PHONE_DISPLAY}</a>.</p>
+    </article>
+  </main>
+  <footer class="legal-foot">
+    <div class="wrap">
+      <nav aria-label="Legal"><a href="./privacy-policy">Privacy Policy</a><a href="./terms-of-service">Terms of Service</a><a href="./">Home</a></nav>
+      <p>© {new Date().getFullYear()} {NAME}. Independent travel advisor affiliated with Enchanted Escapes Travel (Enchanted Escapes, LLC), Cypress, TX. Florida Seller of Travel #ST40359.</p>
+    </div>
+  </footer>
+</Base>

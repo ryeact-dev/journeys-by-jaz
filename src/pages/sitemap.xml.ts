@@ -27,6 +27,18 @@ export function GET() {
     <priority>1.0</priority>
 ${imgXml}
   </url>
+  <url>
+    <loc>${SITE}/privacy-policy</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>${SITE}/terms-of-service</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
 `;
   return new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });

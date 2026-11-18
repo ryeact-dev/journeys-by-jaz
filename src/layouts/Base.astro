@@ -2,13 +2,14 @@
 import '../styles/global.css';
 import animations from '../scripts/animations.js?raw';
 import { SITE, NAME, LAST_MOD } from '../data/site';
-interface Props { title: string; description: string; path?: string; image?: string; imageAlt?: string; }
+interface Props { title: string; description: string; path?: string; image?: string; imageAlt?: string; preloadHero?: boolean; }
 const {
   title,
   description,
   path = '/',
   image = '/og-image.jpg',
   imageAlt = 'Journeys by Jaz: a cruise ship docked under a deep blue sky',
+  preloadHero = true,
 } = Astro.props;
 const url = SITE + path;
 const ogImage = SITE + image;
@@ -71,7 +72,7 @@ const ogImage = SITE + image;
     <link rel="describedby" type="text/markdown" href="./llms.txt" />
 
     <!-- LCP image -->
-    <link rel="preload" as="image" href="./hero.webp" fetchpriority="high" />
+    {preloadHero && <link rel="preload" as="image" href="./hero.webp" fetchpriority="high" />}
 
     <slot name="head" />
   </head>

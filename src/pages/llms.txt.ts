@@ -27,6 +27,10 @@ ${kinds.map(([t, d], i) => `- [${t}](${SITE}/#${anchors[i]}): ${d}`).join('\n')}
 - [Meet Jaz](${SITE}/#about): Who Jaz is, why she loves cruises, and how booking through Enchanted Escapes Travel works.
 - [Frequently asked questions](${SITE}/#faq): Fees, whether agents are cheaper, vacation costs, Disney and Universal planning, all-inclusive resorts, Galveston cruises, group trips, how booking works, legitimacy.
 
+## Legal
+- [Privacy Policy](${SITE}/privacy-policy): What personal information is collected, how it is used and shared, and your choices.
+- [Terms of Service](${SITE}/terms-of-service): Planning fee, bookings and payments, cancellations, responsibilities and liability.
+
 ## Optional
 - [Full site content in one file](${SITE}/llms-full.txt): Complete text of the site, including every FAQ answer.
 - [Sitemap](${SITE}/sitemap.xml)
