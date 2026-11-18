@@ -128,3 +128,33 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
   nav.querySelectorAll(".links a").forEach((a) => a.addEventListener("click", closeAll));
 })();
+
+// exclusive, animated FAQ accordion
+(() => {
+  const items = [...document.querySelectorAll(".faq details")];
+  const EASE = "cubic-bezier(.22,1,.36,1)";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const run = (d, to) => {
+    const a = d.querySelector(".faq-a");
+    if (d._anim) d._anim.cancel();
+    const from = a.getBoundingClientRect().height;
+    d.dataset.state = to ? "open" : "closed";
+    if (to) d.open = true;
+    const target = to ? a.scrollHeight : 0;
+    if (reduce) { if (!to) d.open = false; return; }
+    d._anim = a.animate(
+      { height: [from + "px", target + "px"], opacity: [to ? 0.2 : 1, to ? 1 : 0] },
+      { duration: to ? 550 : 420, easing: EASE }
+    );
+    d._anim.onfinish = () => { d._anim = null; if (!to) d.open = false; };
+    d._anim.oncancel = () => { d._anim = null; };
+  };
+  items.forEach((d) => {
+    d.querySelector("summary").addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = d.dataset.state === "open";
+      items.forEach((o) => { if (o !== d && o.dataset.state === "open") run(o, false); });
+      run(d, !isOpen);
+    });
+  });
+})();
