@@ -156,7 +156,7 @@ const faqs = [
           <p>Tell me your budget and dates. I’ll do the comparing.</p>
           <Btn href={plan}>Plan My Trip</Btn>
         </SectionHead>
-        <div class="diff" style="grid-template-columns:repeat(3,1fr)">
+        <div class="diff diff-3">
           {steps.map(([n, t, d, c], i) => (
             <div class:list={['diff-c reveal', c]} data-delay={i * 140}>
               <span class="num">{n}</span>
