@@ -120,10 +120,12 @@ const faqs = [
         </SectionHead>
         <div class="exp">
           {kinds.map(([t, d], i) => (
-            <div class="exp-c reveal" data-delay={i * 120}>
-              <Placeholder w={400} h={520} label={t} dark fill />
-              <h3>{t}</h3><p>{d}</p>
-              <Btn href={plan} variant="ghost">Plan My Trip</Btn>
+            <div class="exp-c reveal" data-delay={(i % 2) * 120}>
+              <div class="exp-img"><Placeholder w={560} h={340} label={t} dark /></div>
+              <div class="exp-b">
+                <h3>{t}</h3><p>{d}</p>
+                <Btn href={plan} variant="ghost">Plan My Trip</Btn>
+              </div>
             </div>
           ))}
         </div>
@@ -194,6 +196,24 @@ const faqs = [
               <div><h3>{t}</h3><p>{d}</p></div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section style="padding-top:20px">
+      <div class="wrap">
+        <SectionHead n="08" kicker="Life on the water">
+          <Fragment slot="title">A Glimpse Into Your Next Getaway.</Fragment>
+          <p>Cruise decks, resort pools, park days and time with the people you love. These are the moments I plan every trip around.</p>
+        </SectionHead>
+        <div class="gal">
+          <div class="g-big reveal"><Placeholder w={620} h={820} label="Gallery 1" /></div>
+          <div class="reveal" data-delay="100" data-parallax="-24"><Placeholder w={300} h={400} label="Gallery 2" /></div>
+          <div class="reveal" data-delay="200" data-parallax="24"><Placeholder w={300} h={400} label="Gallery 3" /></div>
+          <div class="reveal" data-delay="300" data-parallax="-24"><Placeholder w={300} h={400} label="Gallery 4" /></div>
+          <div class="reveal" data-delay="400" data-parallax="24"><Placeholder w={300} h={400} label="Gallery 5" /></div>
+          <div class="g-wide reveal" data-delay="200"><Placeholder w={620} h={400} label="Gallery 6" /></div>
         </div>
       </div>
     </section>
