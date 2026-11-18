@@ -9,6 +9,7 @@
         const el = e.target;
         el.style.transitionDelay = `${el.dataset.delay ?? 0}ms`;
         el.classList.add("in");
+      el.addEventListener("transitionend", () => { el.style.transitionDelay = ""; }, { once: true });
         io.unobserve(el);
       }
     },
@@ -132,7 +133,7 @@
 // exclusive, animated FAQ accordion
 (() => {
   const items = [...document.querySelectorAll(".faq details")];
-  const EASE = "cubic-bezier(.22,1,.36,1)";
+  const EASE = "cubic-bezier(.4, 0, .2, 1)";
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const run = (d, to) => {
     const a = d.querySelector(".faq-a");
@@ -143,8 +144,8 @@
     const target = to ? a.scrollHeight : 0;
     if (reduce) { if (!to) d.open = false; return; }
     d._anim = a.animate(
-      { height: [from + "px", target + "px"], opacity: [to ? 0.2 : 1, to ? 1 : 0] },
-      { duration: to ? 550 : 420, easing: EASE }
+      { height: [from + "px", target + "px"] },
+      { duration: to ? 280 : 220, easing: EASE }
     );
     d._anim.onfinish = () => { d._anim = null; if (!to) d.open = false; };
     d._anim.oncancel = () => { d._anim = null; };
