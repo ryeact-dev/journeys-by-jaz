@@ -107,3 +107,24 @@
     }, { passive: true });
   }
 })();
+
+// nav dropdown + mobile menu
+(() => {
+  const nav = document.querySelector(".nav");
+  const dd = document.querySelector(".dd");
+  const ddb = document.querySelector(".dd-b");
+  const burger = document.querySelector(".burger");
+  if (!nav || !dd || !ddb || !burger) return;
+  const setDD = (o) => { dd.classList.toggle("open", o); ddb.setAttribute("aria-expanded", String(o)); };
+  ddb.addEventListener("click", (e) => { e.stopPropagation(); setDD(!dd.classList.contains("open")); });
+  burger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const o = !nav.classList.contains("open");
+    nav.classList.toggle("open", o);
+    burger.setAttribute("aria-expanded", String(o));
+  });
+  const closeAll = () => { setDD(false); nav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); };
+  document.addEventListener("click", (e) => { if (!nav.contains(e.target)) closeAll(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
+  nav.querySelectorAll(".links a").forEach((a) => a.addEventListener("click", closeAll));
+})();
