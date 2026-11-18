@@ -1,0 +1,222 @@
+---
+import {
+  SITE, NAME, EMAIL, PHONE_E164, PLAN_URL, TITLE, DESCRIPTION, LAST_MOD, SAME_AS,
+  kinds, steps, faqs,
+} from '../data/site';
+
+const id = (frag: string) => `${SITE}/#${frag}`;
+const serviceIds = ['theme-park', 'cruises', 'all-inclusive', 'group-travel'];
+const serviceTypes = [
+  'Theme-park vacation planning',
+  'Cruise planning',
+  'All-inclusive resort planning',
+  'Group travel and reunion planning',
+];
+
+const logo = {
+  '@type': 'ImageObject',
+  '@id': id('logo'),
+  url: `${SITE}/img/logo-large.webp`,
+  contentUrl: `${SITE}/img/logo-large.webp`,
+  width: 768,
+  height: 768,
+  caption: `${NAME} logo`,
+};
+const heroImage = {
+  '@type': 'ImageObject',
+  '@id': id('primaryimage'),
+  url: `${SITE}/og-image.jpg`,
+  contentUrl: `${SITE}/og-image.jpg`,
+  width: 1200,
+  height: 630,
+  caption: 'A cruise ship docked under a deep blue sky',
+};
+const aboutImage = {
+  '@type': 'ImageObject',
+  '@id': id('jaz-photo'),
+  url: `${SITE}/img/about-jaz.webp`,
+  contentUrl: `${SITE}/img/about-jaz.webp`,
+  caption: 'Jaz, independent travel advisor and vacation planner',
+};
+
+const feeOffer = {
+  '@type': 'Offer',
+  '@id': id('planning-fee-offer'),
+  name: 'Vacation planning fee',
+  description:
+    'Flat, non-refundable $35 planning fee covering 2–3 custom vacation options within 3 days. Separate from travel costs, which are paid directly to the supplier.',
+  price: '35',
+  priceCurrency: 'USD',
+  url: PLAN_URL,
+  availability: 'https://schema.org/InStock',
+  eligibleRegion: { '@type': 'Country', name: 'United States' },
+};
+
+const services = kinds.map(([name, desc], i) => ({
+  '@type': 'Service',
+  '@id': id(`service-${serviceIds[i]}`),
+  name,
+  serviceType: serviceTypes[i],
+  description: desc,
+  url: `${SITE}/#${serviceIds[i]}`,
+  provider: { '@id': id('organization') },
+  areaServed: [
+    { '@type': 'City', name: 'Houston' },
+    { '@type': 'AdministrativeArea', name: 'Texas' },
+    { '@type': 'Country', name: 'United States' },
+  ],
+  offers: { '@id': id('planning-fee-offer') },
+}));
+
+const organization: Record<string, unknown> = {
+  '@type': ['TravelAgency', 'LocalBusiness'],
+  '@id': id('organization'),
+  name: NAME,
+  alternateName: ['Journeys By Jaz', 'JourneysByJaz'],
+  url: `${SITE}/`,
+  description: DESCRIPTION,
+  slogan: 'Vacations planned around your budget. Planned for you.',
+  logo: { '@id': id('logo') },
+  image: [{ '@id': id('primaryimage') }, { '@id': id('logo') }],
+  telephone: PHONE_E164,
+  email: EMAIL,
+  priceRange: '$35 planning fee',
+  currenciesAccepted: 'USD',
+  founder: { '@id': id('jaz') },
+  employee: { '@id': id('jaz') },
+  areaServed: [
+    { '@type': 'City', name: 'Houston' },
+    { '@type': 'AdministrativeArea', name: 'Texas' },
+    { '@type': 'Country', name: 'United States' },
+  ],
+  knowsAbout: [
+    'Walt Disney World vacations',
+    'Disneyland vacations',
+    'Universal Orlando vacations',
+    'Disney Cruise Line',
+    'Cruises from the Port of Galveston',
+    'All-inclusive resorts in Mexico and the Caribbean',
+    'Group travel and family reunions',
+    'Budget vacation planning',
+    'Travel insurance quotes',
+  ],
+  memberOf: {
+    '@type': 'Organization',
+    name: 'Enchanted Escapes Travel (Enchanted Escapes, LLC)',
+    description: 'Authorized Disney Vacation Planner agency in Cypress, Texas, through which Journeys by Jaz books travel.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Cypress',
+      addressRegion: 'TX',
+      addressCountry: 'US',
+    },
+  },
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'Florida Seller of Travel',
+    value: 'ST40359',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: PHONE_E164,
+      email: EMAIL,
+      areaServed: 'US',
+      availableLanguage: 'English',
+    },
+  ],
+  makesOffer: { '@id': id('planning-fee-offer') },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Vacation planning services',
+    itemListElement: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@id': s['@id'] } })),
+  },
+};
+if (SAME_AS.length) organization.sameAs = SAME_AS;
+
+const person = {
+  '@type': 'Person',
+  '@id': id('jaz'),
+  name: 'Jaz',
+  jobTitle: 'Independent Travel Advisor and Vacation Planner',
+  description:
+    'Independent travel advisor affiliated with Enchanted Escapes Travel, an Authorized Disney Vacation Planner agency in Cypress, Texas. Plans Disney, Universal Orlando, cruise, all-inclusive and group trips for Houston-area travelers and clients across the United States.',
+  image: { '@id': id('jaz-photo') },
+  url: `${SITE}/#about`,
+  worksFor: { '@id': id('organization') },
+  knowsAbout: ['Cruises', 'Disney vacations', 'Universal Orlando', 'All-inclusive resorts', 'Group travel'],
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': id('website'),
+  url: `${SITE}/`,
+  name: NAME,
+  description: DESCRIPTION,
+  inLanguage: 'en-US',
+  publisher: { '@id': id('organization') },
+};
+
+const webpage = {
+  '@type': 'WebPage',
+  '@id': id('webpage'),
+  url: `${SITE}/`,
+  name: TITLE,
+  description: DESCRIPTION,
+  inLanguage: 'en-US',
+  isPartOf: { '@id': id('website') },
+  about: { '@id': id('organization') },
+  primaryImageOfPage: { '@id': id('primaryimage') },
+  image: { '@id': id('primaryimage') },
+  datePublished: '2026-11-18',
+  dateModified: LAST_MOD,
+  breadcrumb: { '@id': id('breadcrumb') },
+  mainEntity: { '@id': id('faq') },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.hero p', '.fee-l p', '.faq summary'],
+  },
+  potentialAction: { '@type': 'ReadAction', target: [`${SITE}/`] },
+};
+
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  '@id': id('breadcrumb'),
+  itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` }],
+};
+
+const faq = {
+  '@type': 'FAQPage',
+  '@id': id('faq'),
+  url: `${SITE}/#faq`,
+  name: 'Frequently asked questions about Journeys by Jaz',
+  isPartOf: { '@id': id('webpage') },
+  inLanguage: 'en-US',
+  mainEntity: faqs.map(([q, a]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const howTo = {
+  '@type': 'HowTo',
+  '@id': id('howto'),
+  name: 'How to plan a Disney vacation on a budget in 3 steps',
+  description: 'Tell Jaz your dates and budget, she researches 2–3 custom options, then you choose and book.',
+  totalTime: 'P3D',
+  estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '35' },
+  step: steps.map(([n, name, text], i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name,
+    text,
+    url: `${SITE}/#how-it-works`,
+  })),
+};
+
+const graph = [organization, logo, heroImage, aboutImage, person, website, webpage, breadcrumb, faq, howTo, feeOffer, ...services];
+const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+---
+<script type="application/ld+json" set:html={json} />

@@ -1,17 +1,79 @@
 ---
 import '../styles/global.css';
 import animations from '../scripts/animations.js?raw';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+import { SITE, NAME, LAST_MOD } from '../data/site';
+interface Props { title: string; description: string; path?: string; image?: string; imageAlt?: string; }
+const {
+  title,
+  description,
+  path = '/',
+  image = '/og-image.jpg',
+  imageAlt = 'Journeys by Jaz: a cruise ship docked under a deep blue sky',
+} = Astro.props;
+const url = SITE + path;
+const ogImage = SITE + image;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="travel agent Houston, vacation planner, Disney vacation planner, Universal Orlando vacation, all-inclusive resorts, cruises from Galveston, group travel, family reunion trips, budget vacation planning, Houston travel agent, Enchanted Escapes Travel" />
+    <meta name="author" content={NAME} />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <link rel="canonical" href={url} />
+    <link rel="alternate" hreflang="en-US" href={url} />
+    <link rel="alternate" hreflang="x-default" href={url} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={NAME} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:updated_time" content={LAST_MOD} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <!-- Local / geo -->
+    <meta name="geo.region" content="US-TX" />
+    <meta name="geo.placename" content="Houston" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    <!-- Browser / PWA -->
+    <meta name="theme-color" content="#04163f" />
+    <meta name="application-name" content={NAME} />
+    <meta name="apple-mobile-web-app-title" content={NAME} />
     <link rel="icon" type="image/webp" href="./img/logo.webp" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+
+    <!-- Machine-readable resources for crawlers and AI engines -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml" />
+    <link rel="alternate" type="text/markdown" title="LLM-friendly summary (llms.txt)" href="./llms.txt" />
+    <link rel="describedby" type="text/markdown" href="./llms.txt" />
+
+    <!-- LCP image -->
+    <link rel="preload" as="image" href="./hero.webp" fetchpriority="high" />
+
+    <slot name="head" />
   </head>
   <body>
     <slot />
