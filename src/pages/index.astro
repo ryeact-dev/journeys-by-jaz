@@ -138,7 +138,8 @@ const stats = [
         <div class="fee-l">
           <div class="kicker reveal"><i>04/</i><span>Planning fee</span></div>
           <h2 class="words">What your $35 vacation planning fee covers</h2>
-          <p class="reveal"><b>Why I charge a small planning fee.</b> Good planning takes real time: comparing resorts, sailings, cabin categories and dates to find what actually fits your budget. The $35 planning fee covers that research and lets me focus fully on your trip. It’s separate from your travel costs, and it’s a small price next to the hours you’d spend searching on your own.</p>
+          <h3 class="fee-h reveal">Why I charge a small planning fee</h3>
+          <p class="reveal">Good planning takes real time: comparing resorts, sailings, cabin categories and dates to find what actually fits your budget. The $35 planning fee covers that research and lets me focus fully on your trip. It’s separate from your travel costs, and it’s a small price next to the hours you’d spend searching on your own.</p>
           <p class="warn reveal">The planning fee is non-refundable. It covers the time spent on research, consultation and itinerary building. The planning fee is separate from your travel costs (park tickets, resorts, cruises and so on).</p>
         </div>
         <ul class="cover">
@@ -208,7 +209,7 @@ const stats = [
         </SectionHead>
         <div class="faq">
           {faqs.map(([q, a], i) => (
-            <details class="reveal" data-delay={Math.min(i, 4) * 60}><summary>{q}</summary><div class="faq-a"><p>{a}</p></div></details>
+            <details class="reveal" data-delay={Math.min(i, 4) * 60}><summary><h3>{q}</h3></summary><div class="faq-a"><p>{a}</p></div></details>
           ))}
         </div>
       </div>
@@ -228,9 +229,9 @@ const stats = [
           <p>Disney travel agent serving Houston, Texas and families across the U.S.</p>
           <Btn href={plan} variant="accent">Plan My Trip</Btn>
         </div>
-        <div class="reveal" data-delay="100"><h4>Email</h4><ul><li><a href={`mailto:${email}`}>{email}</a></li></ul></div>
-        <div class="reveal" data-delay="200"><h4>Phone</h4><ul><li><a href="tel:+17138870363">(713) 887-0363</a></li></ul></div>
-        <div class="reveal" data-delay="300"><h4>Agency</h4><ul><li>Enchanted Escapes Travel</li><li>Cypress, TX</li><li>Florida Seller of Travel #ST40359</li></ul></div>
+        <div class="reveal" data-delay="100"><h3>Email</h3><ul><li><a href={`mailto:${email}`}>{email}</a></li></ul></div>
+        <div class="reveal" data-delay="200"><h3>Phone</h3><ul><li><a href="tel:+17138870363">(713) 887-0363</a></li></ul></div>
+        <div class="reveal" data-delay="300"><h3>Agency</h3><ul><li>Enchanted Escapes Travel</li><li>Cypress, TX</li><li>Florida Seller of Travel #ST40359</li></ul></div>
       </div>
       <div class="wordmark reveal"><span>Journeys by Jaz</span></div>
       <div class="legal" style="flex-direction:column;gap:10px">
