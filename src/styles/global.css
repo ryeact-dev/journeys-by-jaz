@@ -316,3 +316,14 @@ section[id],.exp-c[id]{scroll-margin-top:110px}
   .cta h2{font-size:30px}
 }
 @media(max-width:860px){.diff-c{min-height:210px;gap:36px}}
+
+/* ---------- hero: lift the photo, keep the copy on a clean dark-navy base ---------- */
+.hero{background:#04163f}
+.hero .hero-img{inset:0 0 auto 0;height:74%;object-position:center 62%;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)}
+.hero::after{background:linear-gradient(180deg,rgba(2,10,40,.35),transparent 22%,transparent 48%,rgba(4,22,63,.55) 72%,rgba(4,22,63,.9) 100%)}
+.hero h1,.hero p,.hero .eyebrow,.fee-note{text-shadow:0 2px 18px rgba(2,10,40,.55)}
+.hero p{opacity:.95}
+@media(max-width:860px){
+  .hero .hero-img{height:50%;object-position:62% 40%}
+  .hero::after{background:linear-gradient(180deg,rgba(2,10,40,.35),transparent 20%,transparent 36%,rgba(4,22,63,.7) 56%,rgba(4,22,63,.95) 100%)}
+}
