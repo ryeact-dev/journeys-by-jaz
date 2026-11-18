@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// Deployed to GitHub Pages at https://ryeact-dev.github.io/journeys-by-jaz/
+// Fully self-contained output (inline CSS + JS, no absolute asset paths),
+// so the build works on GitHub Pages, any static host, or opened from disk.
 export default defineConfig({
   site: 'https://ryeact-dev.github.io',
-  base: '/journeys-by-jaz',
+  build: { inlineStylesheets: 'always' },
 });
