@@ -327,3 +327,13 @@ section[id],.exp-c[id]{scroll-margin-top:110px}
   .hero .hero-img{height:50%;object-position:62% 40%}
   .hero::after{background:linear-gradient(180deg,rgba(2,10,40,.35),transparent 20%,transparent 36%,rgba(4,22,63,.7) 56%,rgba(4,22,63,.95) 100%)}
 }
+
+/* ---------- mobile hero: photo on top, copy underneath (no overlap) ---------- */
+@media(max-width:860px){
+  .hero{min-height:0;justify-content:flex-start;padding-top:78px;background:#04163f}
+  .hero .hero-img{position:relative;inset:auto;display:block;width:100%;height:auto;aspect-ratio:5/4;object-position:66% 50%;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,transparent 100%)}
+  .hero::after{background:linear-gradient(180deg,rgba(2,10,40,.4),transparent 16%)}
+  .hero-in{margin-top:-18px;padding:0 22px 40px}
+  .hero h1{font-size:clamp(34px,10vw,44px)}
+}
+@media(min-width:600px) and (max-width:860px){.hero .hero-img{aspect-ratio:16/9}}
