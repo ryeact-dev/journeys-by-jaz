@@ -19,13 +19,12 @@ export function GET() {
     .map(([p, caption, title]) => `    <image:image>\n      <image:loc>${SITE}${p}</image:loc>\n      <image:caption>${esc(caption)}</image:caption>\n      <image:title>${esc(title)}</image:title>\n    </image:image>`)
     .join('\n');
   const body = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${SITE}/</loc>
     <lastmod>${LAST_MOD}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="${SITE}/"/>
 ${imgXml}
   </url>
 </urlset>
