@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journeys by Jaz</title>
+<meta name="description" content="Private yacht escapes and unforgettable coastal adventures, curated by Jaz.">
+<style>
+:root{--ink:#141414;--paper:#fff;--soft:#f3f3f0;--muted:#6b6b6b;--accent:#f2a553;--r:28px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* nav: logo + CTA only (no links) */
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 32px));z-index:10;
+ display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:999px;
+ background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-shadow:0 4px 24px rgba(0,0,0,.12)}
+.logo{background:var(--ink);color:#fff;letter-spacing:.2em;font-weight:700;font-size:14px;padding:13px 26px;border-radius:999px}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 22px;border-radius:999px;font-size:15px;font-weight:500;background:var(--ink);color:#fff;border:1px solid var(--ink)}
+.btn.light{background:#fff;color:var(--ink);border-color:#fff}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)}
+.btn.out{background:#fff;color:var(--ink);border-color:#e5e5e0}
+.dot{width:34px;height:34px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.dot::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.btn:not(.light):not(.out) .dot{background:#fff}
+.btn.ghost .dot{background:#fff}
+
+/* hero */
+.hero{margin:14px;border-radius:30px;min-height:calc(100vh - 28px);color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+ background:radial-gradient(ellipse at 70% 75%,#c8643a 0,transparent 45%),linear-gradient(180deg,#0f4c57 0%,#1c6a6b 38%,#7a5a4f 70%,#1a1412 100%)}
+.pill{position:absolute;top:130px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center;padding:6px 16px 6px 6px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);font-size:14px;white-space:nowrap;z-index:2}
+.pill b{background:var(--accent);color:var(--ink);padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.05em}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end;padding:0 clamp(24px,8vw,140px) 60px}
+.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;display:flex;gap:12px;align-items:center;margin-bottom:22px;opacity:.85}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(40px,5vw,72px);line-height:1.02;letter-spacing:-.03em;font-weight:500}
+.hero p{font-size:20px;opacity:.85;margin-bottom:28px;max-width:440px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+
+/* sections */
+section{padding:110px 0}
+.kicker{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:12px;align-items:center;margin-bottom:22px}
+.kicker i{font-style:normal;color:var(--accent)}
+.kicker::after{content:"";width:40px;height:1px;background:#ccc;order:1}
+.kicker span{order:2}
+h2{font-size:clamp(32px,4.2vw,52px);line-height:1.08;letter-spacing:-.03em;font-weight:500}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.head p{color:var(--muted);font-size:19px}
+.head .btn{margin-top:22px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:70px}
+.stats b{display:block;font-size:56px;letter-spacing:-.03em;font-weight:500}
+.stats span{color:var(--muted)}
+.big{font-size:clamp(90px,18vw,240px);color:var(--accent);font-weight:600;letter-spacing:-.05em;text-align:center;line-height:1}
+.big em{font-style:normal;display:inline-block;width:.9em;height:.4em;border-radius:999px;background:linear-gradient(135deg,#0f4c57,#1c6a6b);vertical-align:middle;margin:0 .05em}
+
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--soft);border-radius:var(--r);padding:8px 8px 22px}
+.ph{border-radius:22px;aspect-ratio:3/4;position:relative}
+.ph .tag{position:absolute;top:12px;left:12px;background:#fff;border-radius:999px;padding:6px 14px;font-size:13px}
+.card h3{font-size:22px;font-weight:500;margin:18px 14px 2px}
+.card small{display:block;margin:0 14px;color:var(--muted)}
+.chips{display:flex;gap:8px;margin:16px 14px}
+.chips span{background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+.price{display:flex;justify-content:space-between;align-items:center;margin:18px 14px 0;padding-top:16px;border-top:1px solid #e3e3de;font-size:22px;font-weight:500}
+.price small{display:inline;margin:0;font-size:13px}
+.g1{background:linear-gradient(160deg,#cfd8e0,#5d7f98 60%,#1c2b38)}
+.g2{background:linear-gradient(160deg,#a9c9d8,#e8dccb 40%,#2c5470)}
+.g3{background:linear-gradient(160deg,#c78a5f,#a9a08e 50%,#4c7a96)}
+.g4{background:linear-gradient(160deg,#1b2733,#6a8aa2 60%,#e8f0f5)}
+.g5{background:linear-gradient(160deg,#4a3a5f,#3a5a8f 55%,#caa27a)}
+.g6{background:linear-gradient(160deg,#16a5b8,#7fe0d0 55%,#f3e7cb)}
+.g7{background:linear-gradient(160deg,#2aa6c8,#8fd6e0 55%,#e9d9b6)}
+.g8{background:linear-gradient(160deg,#9b3a2e,#d98a6a 45%,#2f7d95)}
+.dest{background:var(--soft);border-radius:36px;padding:70px 0 80px}
+.dest .ph{aspect-ratio:3/4}
+.dest h3{font-size:24px;font-weight:500;margin-top:16px}
+.dest p{color:var(--muted);font-size:14px}
+
+.testis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.t{background:var(--soft);border-radius:var(--r);padding:30px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+.t.dark{background:var(--ink);color:#fff}
+.t q{font-size:18px;quotes:none}
+.who{display:flex;gap:12px;align-items:center;font-size:15px}
+.who i{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#caa27a,#7a5a4f)}
+.who small{display:block;color:var(--muted)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.s{border-radius:var(--r);padding:30px;min-height:240px;background:var(--soft);display:flex;flex-direction:column;justify-content:flex-end}
+.s.dark{background:var(--ink);color:#fff}.s.or{background:var(--accent)}
+.s h3{font-size:24px;font-weight:500;margin-bottom:8px}.s p{opacity:.7}
+
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:16px;align-items:start}
+.gal div{border-radius:22px;aspect-ratio:3/4}
+.gal div:first-child{aspect-ratio:3/5}
+.gal div:not(:first-child){aspect-ratio:3/4}
+
+footer{background:var(--ink);color:#fff;margin:14px;border-radius:30px;padding:80px 0 30px;overflow:hidden}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.fgrid p{opacity:.75;max-width:360px;margin-bottom:24px}
+.fgrid h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-bottom:16px;font-weight:500}
+.fgrid li{list-style:none;opacity:.85;margin-bottom:8px;font-size:15px}
+.wordmark{font-size:clamp(48px,13vw,190px);font-weight:600;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.legal{margin-top:30px;opacity:.5;font-size:13px;display:flex;justify-content:space-between}
+
+@media(max-width:860px){
+ .hero-in,.head,.fgrid{grid-template-columns:1fr}
+ .grid4{grid-template-columns:repeat(2,1fr)}
+ .testis,.steps,.stats{grid-template-columns:1fr 1fr}
+ .gal{grid-template-columns:1fr 1fr}.gal div:first-child{grid-column:span 2}
+ .pill{display:none}section{padding:70px 0}
+}
+@media(max-width:540px){.testis,.steps,.grid4{grid-template-columns:1fr}.nav .btn{font-size:13px;padding-left:14px}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="#top">JOURNEYS BY JAZ</a>
+  <a class="btn" href="#contact">Book Your Experience <span class="dot"></span></a>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="pill"><b>NEW</b> Discover Your Next Ocean Escape — Explore Our Exclusive Yacht Collection</div>
+  <div class="hero-in">
+    <div>
+      <div class="eyebrow">Your journey begins at sea</div>
+      <h1>Escape the Ordinary. Discover Life Beyond the Shore.</h1>
+    </div>
+    <div>
+      <p>Experience the freedom of the open sea with Journeys by Jaz. From private yacht escapes to unforgettable coastal adventures, we bring your dream ocean experience to life.</p>
+      <div class="row">
+        <a class="btn light" href="#yachts">Explore Our Yachts <span class="dot"></span></a>
+        <a class="btn ghost" href="#destinations">Discover Destinations <span class="dot"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="stats">
+      <div><b>500+</b><span>Journeys Completed</span></div>
+      <div><b>35+</b><span>Yachts</span></div>
+      <div><b>20+</b><span>Destinations</span></div>
+      <div><b>24/7</b><span>Concierge Support</span></div>
+    </div>
+    <div class="big">Life<em></em>Sea</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap head">
+    <div><div class="kicker"><i>01/</i><span>Why guests choose us</span></div>
+    <h2>A More Refined Way to Experience the Ocean.</h2></div>
+    <p>Creating exceptional moments at sea for travelers who appreciate comfort, privacy, and extraordinary destinations.</p>
+  </div>
+  <div class="wrap steps">
+    <div class="s"><h3>Personalized Experiences</h3><p>Every itinerary is tailored to you.</p></div>
+    <div class="s dark"><h3>Professional Crew</h3><p>Experienced, attentive, discreet.</p></div>
+    <div class="s or"><h3>Seamless Reservations</h3><p>From first message to final farewell.</p></div>
+  </div>
+</section>
+
+<section id="yachts" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="kicker"><i>06/</i><span>Our collection</span></div>
+      <h2>Find the Yacht That Matches Your Journey.</h2></div>
+      <div><p>Explore our handpicked collection of exceptional yachts, each offering a unique way to experience the ocean.</p>
+      <a class="btn out" href="#contact">View All Yachts <span class="dot"></span></a></div>
+    </div>
+    <div class="grid4">
+      <div class="card"><div class="ph g1"><span class="tag">Luxury Motor Yacht</span></div><h3>Ocean Pearl</h3><small>Miami, Florida</small><div class="chips"><span>12 Guests</span><span>4 Cabins</span></div><div class="price"><span>$1,200 <small>/ Day</small></span><span class="dot"></span></div></div>
+      <div class="card"><div class="ph g2"><span class="tag">Premium Sailing Yacht</span></div><h3>Azure Horizon</h3><small>Amalfi Coast, Italy</small><div class="chips"><span>8 Guests</span><span>3 Cabins</span></div><div class="price"><span>$950 <small>/ Day</small></span><span class="dot"></span></div></div>
+      <div class="card"><div class="ph g3"><span class="tag">Luxury Superyacht</span></div><h3>Celestial Wave</h3><small>Monaco</small><div class="chips"><span>16 Guests</span><span>6 Cabins</span></div><div class="price"><span>$3,500 <small>/ Day</small></span><span class="dot"></span></div></div>
+      <div class="card"><div class="ph g4"><span class="tag">Sport Yacht</span></div><h3>Silver Tide</h3><small>Ibiza, Spain</small><div class="chips"><span>10 Guests</span><span>3 Cabins</span></div><div class="price"><span>$1,450 <small>/ Day</small></span><span class="dot"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="destinations"><div class="dest" style="padding:70px 40px 80px">
+  <div class="head">
+    <div><div class="kicker"><i>07/</i><span>Explore the world</span></div>
+    <h2>Extraordinary Destinations. Unforgettable Journeys.</h2></div>
+    <div><p>From Mediterranean coastlines to tropical islands, discover the destinations that make every voyage special.</p>
+    <a class="btn" href="#contact">Explore All Destinations <span class="dot"></span></a></div>
+  </div>
+  <div class="grid4">
+    <div><div class="ph g5"></div><h3>Amalfi Coast</h3><p>Dramatic cliffs, charming villages, and sparkling Mediterranean waters.</p></div>
+    <div><div class="ph g2"></div><h3>French Riviera</h3><p>Glamorous harbors, beautiful coastlines, and timeless elegance.</p></div>
+    <div><div class="ph g6"></div><h3>Ibiza</h3><p>Sunlit coves, lively beaches, and golden sunsets.</p></div>
+    <div><div class="ph g8"></div><h3>Maldives</h3><p>Crystal lagoons, overwater villas, and total serenity.</p></div>
+  </div>
+</div></div>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><div class="kicker"><i>08/</i><span>Guest experiences</span></div>
+      <h2>Moments That Stay With You.</h2></div>
+      <p>Discover why our guests choose Journeys by Jaz for their most memorable ocean experiences.</p>
+    </div>
+    <div class="testis">
+      <div class="t"><q>“Everything was absolutely exceptional. The yacht was beautiful, the crew was welcoming, and every moment felt thoughtfully planned.”</q><div class="who"><i></i><div>Sophia Bennett<small>Private Charter Guest</small></div></div></div>
+      <div class="t dark"><q>“We celebrated our anniversary aboard a stunning yacht. The experience exceeded every expectation, from the service to the scenery.”</q><div class="who"><i></i><div>Daniel Morgan<small>Luxury Travel Guest</small></div></div></div>
+      <div class="t"><q>“Booking with Journeys by Jaz was effortless. They helped us find the perfect yacht and created a trip we will never forget.”</q><div class="who"><i></i><div>Olivia Carter<small>Getaway Guest</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="kicker"><i>09/</i><span>How it works</span></div>
+      <h2>Your Perfect Yacht Experience in Three Easy Steps.</h2></div><span></span>
+    </div>
+    <div class="steps">
+      <div class="s"><h3>Choose Your Yacht</h3><p>Browse our curated collection and find the yacht that matches your travel style.</p></div>
+      <div class="s dark"><h3>Customize Your Journey</h3><p>Share your destination, dates, and preferences. Our team handles the rest.</p></div>
+      <div class="s or"><h3>Set Sail &amp; Enjoy</h3><p>Arrive, step aboard, and embark on an experience designed around you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="kicker"><i>10/</i><span>Life on the water</span></div>
+      <h2>A Glimpse Into the Journeys by Jaz Lifestyle.</h2></div>
+      <p>Explore the beauty, freedom, and unforgettable moments that make every journey special.</p>
+    </div>
+    <div class="gal"><div class="g7"></div><div class="g5"></div><div class="g6"></div><div class="g2"></div><div class="g3"></div></div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><p>Journeys by Jaz creates exceptional yacht experiences for travelers seeking freedom, comfort, and unforgettable moments at sea.</p>
+      <a class="btn" style="background:var(--accent);color:var(--ink);border-color:var(--accent)" href="mailto:hello@journeysbyjaz.com">Book Your Yacht <span class="dot" style="background:var(--ink)"></span></a></div>
+      <div><h4>Explore</h4><ul><li>Luxury Motor Yachts</li><li>Premium Sailing Yachts</li><li>Superyachts</li></ul></div>
+      <div><h4>Destinations</h4><ul><li>Amalfi Coast</li><li>French Riviera</li><li>Ibiza</li><li>Maldives</li></ul></div>
+      <div><h4>Contact</h4><ul><li>hello@journeysbyjaz.com</li></ul></div>
+    </div>
+    <div class="wordmark">Journeys by Jaz</div>
+    <div class="legal"><span>© 2026 Journeys by Jaz. All Rights Reserved.</span></div>
+  </div>
+</footer>
+</body>
+</html>
