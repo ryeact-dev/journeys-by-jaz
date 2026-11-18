@@ -1,0 +1,11 @@
+---
+interface Props { n: string; kicker: string; dark?: boolean; }
+const { n, kicker, dark = false } = Astro.props;
+---
+<div class:list={['head', { dark }]}>
+  <div>
+    <div class="kicker reveal"><i>{n}/</i><span>{kicker}</span></div>
+    <h2 class="words"><slot name="title" /></h2>
+  </div>
+  <div class="head-r reveal" data-delay="150"><slot /></div>
+</div>

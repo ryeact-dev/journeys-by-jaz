@@ -1,0 +1,257 @@
+---
+import Base from '../layouts/Base.astro';
+import Placeholder from '../components/Placeholder.astro';
+import Btn from '../components/Btn.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const stats = [
+  { n: 500, s: '+', l: 'Journeys Completed', c: 'dark' },
+  { n: 35, s: '+', l: 'Yachts in Our Collection', c: '' },
+  { n: 20, s: '+', l: 'Destinations Worldwide', c: '' },
+  { n: 24, s: '/7', l: 'Concierge Support', c: 'or' },
+];
+const exps = [
+  ['Private Charters', 'Exclusive yachts, personalized service, and the whole sea to yourself.'],
+  ['Sunset Cruises', 'Golden hour on the water. Enjoy a peaceful evening beneath open skies.'],
+  ['Island Hopping', 'Discover secluded coves, hidden beaches, and extraordinary scenery.'],
+  ['Celebrations at Sea', 'Make birthdays, anniversaries, and milestones truly unforgettable.'],
+];
+const diff = [
+  ['01', 'Carefully Selected Yachts', 'Every vessel is handpicked for quality, comfort, and safety.', ''],
+  ['02', 'Tailored to You', 'Itineraries designed around your pace, preferences, and occasion.', 'dark'],
+  ['03', 'Seamless Planning', 'We handle bookings, logistics, and every detail in between.', 'or'],
+  ['04', 'Trusted Crew', 'Experienced captains and hosts who make every moment effortless.', ''],
+];
+const yachts = [
+  ['Luxury Motor Yacht', 'Ocean Pearl', 'Miami, Florida', '12', '4', '$1,200'],
+  ['Premium Sailing Yacht', 'Azure Horizon', 'Amalfi Coast, Italy', '8', '3', '$950'],
+  ['Luxury Superyacht', 'Celestial Wave', 'Monaco', '16', '6', '$3,500'],
+  ['Sport Yacht', 'Silver Tide', 'Ibiza, Spain', '10', '3', '$1,450'],
+];
+const dests = [
+  ['Amalfi Coast', 'Dramatic cliffs, charming villages, and sparkling Mediterranean waters.'],
+  ['French Riviera', 'Glamorous harbors, beautiful coastlines, and timeless elegance.'],
+  ['Ibiza', 'Sunlit coves, lively beaches, and golden sunsets.'],
+  ['Maldives', 'Crystal lagoons, overwater villas, and total serenity.'],
+];
+const testis = [
+  ['Everything was absolutely exceptional. The yacht was beautiful, the crew was welcoming, and every moment felt thoughtfully planned.', 'Sophia Bennett', 'Private Charter Guest', ''],
+  ['We celebrated our anniversary aboard a stunning yacht. The experience exceeded every expectation, from the service to the scenery.', 'Daniel Morgan', 'Luxury Travel Guest', 'dark'],
+  ['Booking with Journeys by Jaz was effortless. They helped us find the perfect yacht and created a trip we will never forget.', 'Olivia Carter', 'Getaway Guest', ''],
+];
+---
+<Base title="Journeys by Jaz" description="Private yacht escapes and unforgettable coastal adventures, curated by Jaz.">
+  <header class="nav">
+    <a class="logo" href="#top">JOURNEYS BY JAZ</a>
+    <Btn href="#contact">Book Your Experience</Btn>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="hero">
+      <Placeholder w={2560} h={1440} label="Hero background" dark fill />
+      <div class="pill h-in"><b>NEW</b> Discover Your Next Ocean Escape — Explore Our Exclusive Yacht Collection</div>
+      <div class="hero-in">
+        <div>
+          <div class="eyebrow h-in">Your journey begins at sea</div>
+          <h1>
+            <span class="line"><span>Escape the Ordinary.</span></span>
+            <span class="line"><span>Discover Life</span></span>
+            <span class="line"><span>Beyond the Shore.</span></span>
+          </h1>
+        </div>
+        <div class="h-in">
+          <p>Experience the freedom of the open sea with Journeys by Jaz. From private yacht escapes to unforgettable coastal adventures, we bring your dream ocean experience to life.</p>
+          <div class="row">
+            <Btn href="#yachts" variant="light">Explore Our Yachts</Btn>
+            <Btn href="#destinations" variant="ghost">Discover Destinations</Btn>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <section style="padding-bottom:0">
+      <div class="wrap stats">
+        {stats.map((s, i) => (
+          <div class:list={['stat reveal', s.c]} data-delay={i * 120}>
+            <b data-count={s.n} data-suffix={s.s}>0{s.s}</b><span>{s.l}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- LIFE / SEA -->
+    <section class="life">
+      <div class="wrap">
+        <div class="kicker reveal"><i>02/</i><span>Life beyond the shore</span></div>
+        <div class="big"><span>Life</span><span class="life-pill"><Placeholder w={640} h={300} label="Pill image" dark /></span><span>Sea</span></div>
+        <p class="words-p">Where every voyage is shaped around you, and every sunset feels like it was made for the moment.</p>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section style="padding-top:20px">
+      <div class="wrap story">
+        <div class="story-img reveal">
+          <Placeholder w={560} h={620} label="Story image" />
+          <div class="quote">“We believe the best journeys are measured by the moments you create along the way.”<small>Jaz — Founder</small></div>
+        </div>
+        <div class="story-t">
+          <div class="kicker reveal"><i>03/</i><span>Our story</span></div>
+          <h2 class="words">Every Journey Has a Story Worth Telling.</h2>
+          <p class="reveal">Journeys by Jaz is about more than yachts. It is about the moments you create along the way. We specialize in exceptional yacht rental and private charter experiences designed around your lifestyle. Whether you are celebrating something special or simply escaping the everyday, our team makes every detail effortless.</p>
+          <ul class="ticks reveal">
+            <li>Personalized Experiences</li><li>Exceptional Yacht Collection</li>
+            <li>Professional Crew</li><li>Seamless Reservations</li>
+          </ul>
+          <div class="reveal"><Btn href="#contact">Discover Our Story</Btn></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCES (dark) -->
+    <section class="dark-sec">
+      <div class="wrap">
+        <SectionHead n="04" kicker="Unforgettable experiences" dark>
+          <Fragment slot="title">Find Your Perfect Way to Explore the Sea.</Fragment>
+          <p>Every ocean escape is different. Discover experiences designed to make your time on the water truly unforgettable.</p>
+        </SectionHead>
+        <div class="exp">
+          {exps.map(([t, d], i) => (
+            <div class="exp-c reveal" data-delay={i * 120}>
+              <Placeholder w={400} h={520} label={t} dark fill />
+              <h3>{t}</h3><p>{d}</p>
+              <Btn href="#contact" variant="ghost">Explore Experience</Btn>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENCE -->
+    <section>
+      <div class="wrap">
+        <SectionHead n="05" kicker="The Journeys by Jaz difference">
+          <Fragment slot="title">Exceptional Experiences, Without Compromise.</Fragment>
+          <p>We combine premium yachts, thoughtful planning, and dedicated service to make every journey effortless.</p>
+        </SectionHead>
+        <div class="diff">
+          {diff.map(([n, t, d, c], i) => (
+            <div class:list={['diff-c reveal', c]} data-delay={i * 140}>
+              <span class="num">{n}</span>
+              <div><h3>{t}</h3><p>{d}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- YACHTS -->
+    <section id="yachts" style="padding-top:20px">
+      <div class="wrap">
+        <SectionHead n="06" kicker="Our collection">
+          <Fragment slot="title">Find the Yacht That Matches Your Journey.</Fragment>
+          <p>Explore our handpicked collection of exceptional yachts, each offering a unique way to experience the ocean.</p>
+          <Btn href="#contact" variant="out">View All Yachts</Btn>
+        </SectionHead>
+        <div class="grid4">
+          {yachts.map(([tag, name, loc, g, c, p], i) => (
+            <div class="card reveal" data-delay={i * 120}>
+              <div class="imgw"><span class="tag">{tag}</span><Placeholder w={480} h={560} label={name} /></div>
+              <h3>{name}</h3><small>{loc}</small>
+              <div class="chips"><span>{g} Guests</span><span>{c} Cabins</span></div>
+              <div class="price"><span>{p} <small>/ Day</small></span><span class="dot"></span></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <div class="dest" id="destinations">
+      <div class="inner">
+        <SectionHead n="07" kicker="Explore the world">
+          <Fragment slot="title">Extraordinary Destinations. Unforgettable Journeys.</Fragment>
+          <p>From Mediterranean coastlines to tropical islands, discover the destinations that make every voyage special.</p>
+          <Btn href="#contact">Explore All Destinations</Btn>
+        </SectionHead>
+        <div class="grid4">
+          {dests.map(([n, d], i) => (
+            <div class="dest-c reveal" data-delay={i * 120}>
+              <div class="imgw"><Placeholder w={480} h={640} label={n} /><span class="dot go"></span></div>
+              <h3>{n}</h3><p>{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <section>
+      <div class="wrap">
+        <SectionHead n="08" kicker="Guest experiences">
+          <Fragment slot="title">Moments That Stay With You.</Fragment>
+          <p>Discover why our guests choose Journeys by Jaz for their most memorable ocean experiences.</p>
+        </SectionHead>
+        <div class="testis">
+          {testis.map(([q, n, r, c], i) => (
+            <div class:list={['t reveal', c]} data-delay={i * 140}>
+              <div><div class="qm">“</div><q>{q}</q></div>
+              <div class="who"><Placeholder w={80} h={80} class={c ? 'dark' : ''} /><div>{n}<small>{r}</small></div></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section style="padding-top:0">
+      <div class="wrap">
+        <SectionHead n="09" kicker="How it works">
+          <Fragment slot="title">Your Perfect Yacht Experience in Three Easy Steps.</Fragment>
+          <p>Planning your escape should feel as relaxing as the journey itself.</p>
+        </SectionHead>
+        <div class="steps">
+          <div class="s reveal"><span class="num">01</span><div><h3>Choose Your Yacht</h3><p>Browse our curated collection and find the yacht that matches your travel style.</p></div></div>
+          <div class="s dark reveal" data-delay="140"><span class="num">02</span><div><h3>Customize Your Journey</h3><p>Share your destination, dates, and preferences. Our team handles the rest.</p></div></div>
+          <div class="s or reveal" data-delay="280"><span class="num">03</span><div><h3>Set Sail &amp; Enjoy</h3><p>Arrive, step aboard, and embark on an experience designed around you.</p></div></div>
+        </div>
+        <div class="steps-img reveal"><Placeholder w={1180} h={520} label="Wide banner" /></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section style="padding-top:20px">
+      <div class="wrap">
+        <SectionHead n="10" kicker="Life on the water">
+          <Fragment slot="title">A Glimpse Into the Journeys by Jaz Lifestyle.</Fragment>
+          <p>Explore the beauty, freedom, and unforgettable moments that make every journey special.</p>
+        </SectionHead>
+        <div class="gal">
+          <div class="reveal"><Placeholder w={620} h={820} label="Gallery 1" /></div>
+          <div class="reveal" data-delay="100" data-parallax="-30"><Placeholder w={300} h={400} label="Gallery 2" /></div>
+          <div class="reveal" data-delay="200" data-parallax="30"><Placeholder w={300} h={400} label="Gallery 3" /></div>
+          <div class="reveal" data-delay="300" data-parallax="-30"><Placeholder w={300} h={400} label="Gallery 4" /></div>
+          <div class="reveal" data-delay="400" data-parallax="30"><Placeholder w={300} h={400} label="Gallery 5" /></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="fgrid">
+        <div class="reveal">
+          <p>Journeys by Jaz creates exceptional yacht experiences for travelers seeking freedom, comfort, and unforgettable moments at sea.</p>
+          <Btn href="mailto:hello@journeysbyjaz.com" variant="accent">Book Your Yacht</Btn>
+        </div>
+        <div class="reveal" data-delay="100"><h4>Explore</h4><ul><li>Luxury Motor Yachts</li><li>Premium Sailing Yachts</li><li>Superyachts</li></ul></div>
+        <div class="reveal" data-delay="200"><h4>Destinations</h4><ul><li>Amalfi Coast</li><li>French Riviera</li><li>Ibiza</li><li>Maldives</li></ul></div>
+        <div class="reveal" data-delay="300"><h4>Contact</h4><ul><li>hello@journeysbyjaz.com</li></ul></div>
+      </div>
+      <div class="wordmark reveal"><span>Journeys by Jaz</span></div>
+      <div class="legal"><span>© 2026 Journeys by Jaz. All Rights Reserved.</span></div>
+    </div>
+  </footer>
+</Base>

@@ -1,0 +1,8 @@
+---
+interface Props { w: number; h: number; label?: string; dark?: boolean; fill?: boolean; class?: string; }
+const { w, h, label, dark = false, fill = false, class: cls = '' } = Astro.props;
+---
+<div class:list={['ph', { dark, fill }, cls]} style={fill ? undefined : `aspect-ratio:${w}/${h}`} data-size={`${w}x${h}`}>
+  <span class="ph-label">{label ? `${label} · ` : ''}{w} × {h}</span>
+  <slot />
+</div>
