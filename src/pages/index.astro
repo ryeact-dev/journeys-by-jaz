@@ -14,10 +14,10 @@ const stats = [
   { n: 1, p: '', s: '', l: 'Real person, before, during and after your trip', c: 'or' },
 ];
 const kinds = [
-  ['Theme-park vacations', 'Walt Disney World, Disneyland or Universal Orlando? I compare resorts, tickets and dining to fit your budget, so you get the magic without overspending or overplanning.'],
-  ['Cruises, including from Galveston', 'Disney Cruise Line or another cruise line, your first sailing or your fifth. I help you choose the ship, cabin and itinerary, and for Houston-area travelers, a port you can drive to.'],
-  ['All-inclusive resorts', 'One price, fewer surprises. Couples, families or friends: I compare all-inclusive resorts by what’s included and the total cost, so you can relax from the moment you arrive.'],
-  ['Group trips and reunions', 'Traveling with friends, cousins, grandparents or a whole crowd? I compare options for the whole group and keep the details in one plan.'],
+  ['Theme-park vacations', 'Walt Disney World, Disneyland or Universal Orlando? I compare resorts, tickets and dining to fit your budget, so you get the magic without overspending or overplanning.', './img/theme-park.webp', 'A lively cruise ship pool deck with a lifeguard and families swimming'],
+  ['Cruises, including from Galveston', 'Disney Cruise Line or another cruise line, your first sailing or your fifth. I help you choose the ship, cabin and itinerary, and for Houston-area travelers, a port you can drive to.', './img/cruises.webp', 'Two large cruise ships docked side by side at a sunny port'],
+  ['All-inclusive resorts', 'One price, fewer surprises. Couples, families or friends: I compare all-inclusive resorts by what’s included and the total cost, so you can relax from the moment you arrive.', './img/all-inclusive.webp', 'Resort towers beside a calm lagoon and sandy beach under blue sky'],
+  ['Group trips and reunions', 'Traveling with friends, cousins, grandparents or a whole crowd? I compare options for the whole group and keep the details in one plan.', './img/group-trips.webp', 'Groups gathered around hot tubs and the pool on a cruise ship deck'],
 ];
 const steps = [
   ['01', 'Tell me your plan', 'Share your dates, budget, who’s going (including kids’ ages) and the kind of trip you want. It takes about 2 minutes.', ''],
@@ -119,9 +119,9 @@ const faqs = [
           <p>Journeys by Jaz is a vacation planner and travel agent for Disney, Universal Orlando, all-inclusive resort, cruise and group trips.</p>
         </SectionHead>
         <div class="exp">
-          {kinds.map(([t, d], i) => (
+          {kinds.map(([t, d, img, alt], i) => (
             <div class="exp-c reveal" data-delay={(i % 2) * 120}>
-              <div class="exp-img"><Placeholder w={560} h={340} label={t} dark /></div>
+              <div class="exp-img"><img src={img} alt={alt} width="1210" height="707" loading="lazy" /></div>
               <div class="exp-b">
                 <h3>{t}</h3><p>{d}</p>
                 <Btn href={plan} variant="ghost">Plan My Trip</Btn>
