@@ -4,68 +4,81 @@ import Placeholder from '../components/Placeholder.astro';
 import Btn from '../components/Btn.astro';
 import SectionHead from '../components/SectionHead.astro';
 
+const email = 'journeysbyjaz@gmail.com';
+const plan = `mailto:${email}?subject=${encodeURIComponent('Plan my trip')}`;
+
 const stats = [
-  { n: 500, s: '+', l: 'Journeys Completed', c: 'dark' },
-  { n: 35, s: '+', l: 'Yachts in Our Collection', c: '' },
-  { n: 20, s: '+', l: 'Destinations Worldwide', c: '' },
-  { n: 24, s: '/7', l: 'Concierge Support', c: 'or' },
+  { n: 35, p: '$', s: '', l: 'Planning fee, separate from your travel costs', c: 'dark' },
+  { n: 3, p: '', s: ' days', l: 'Until your options arrive', c: '' },
+  { t: '2–3', l: 'Custom options built around your budget', c: '' },
+  { n: 1, p: '', s: '', l: 'Real person, before, during and after your trip', c: 'or' },
 ];
-const exps = [
-  ['Private Charters', 'Exclusive yachts, personalized service, and the whole sea to yourself.'],
-  ['Sunset Cruises', 'Golden hour on the water. Enjoy a peaceful evening beneath open skies.'],
-  ['Island Hopping', 'Discover secluded coves, hidden beaches, and extraordinary scenery.'],
-  ['Celebrations at Sea', 'Make birthdays, anniversaries, and milestones truly unforgettable.'],
+const kinds = [
+  ['Theme-park vacations', 'Walt Disney World, Disneyland or Universal Orlando? I compare resorts, tickets and dining to fit your budget, so you get the magic without overspending or overplanning.'],
+  ['Cruises, including from Galveston', 'Disney Cruise Line or another cruise line, your first sailing or your fifth. I help you choose the ship, cabin and itinerary, and for Houston-area travelers, a port you can drive to.'],
+  ['All-inclusive resorts', 'One price, fewer surprises. Couples, families or friends: I compare all-inclusive resorts by what’s included and the total cost, so you can relax from the moment you arrive.'],
+  ['Group trips and reunions', 'Traveling with friends, cousins, grandparents or a whole crowd? I compare options for the whole group and keep the details in one plan.'],
 ];
-const diff = [
-  ['01', 'Carefully Selected Yachts', 'Every vessel is handpicked for quality, comfort, and safety.', ''],
-  ['02', 'Tailored to You', 'Itineraries designed around your pace, preferences, and occasion.', 'dark'],
-  ['03', 'Seamless Planning', 'We handle bookings, logistics, and every detail in between.', 'or'],
-  ['04', 'Trusted Crew', 'Experienced captains and hosts who make every moment effortless.', ''],
+const steps = [
+  ['01', 'Tell me your plan', 'Share your dates, budget, who’s going (including kids’ ages) and the kind of trip you want. It takes about 2 minutes.', ''],
+  ['02', 'I do the research', 'Once you sign the simple service agreement and pay the $35 planning fee, I compare resorts, tickets, sailings and prices. Your 2–3 options arrive within 3 days.', 'dark'],
+  ['03', 'Choose and book', 'Pick the option you love, then complete one secure Enchanted Escapes Travel booking form. I’ll handle the booking and stay in touch before, during and after your trip.', 'or'],
 ];
-const yachts = [
-  ['Luxury Motor Yacht', 'Ocean Pearl', 'Miami, Florida', '12', '4', '$1,200'],
-  ['Premium Sailing Yacht', 'Azure Horizon', 'Amalfi Coast, Italy', '8', '3', '$950'],
-  ['Luxury Superyacht', 'Celestial Wave', 'Monaco', '16', '6', '$3,500'],
-  ['Sport Yacht', 'Silver Tide', 'Ibiza, Spain', '10', '3', '$1,450'],
+const covers = [
+  ['2–3 custom Disney, cruise or vacation options', 'built around your budget and preferences'],
+  ['Your options in 3 days', ''],
+  ['Honest advice', 'on resorts, tickets, cabins, hotels and packages'],
+  ['Fees upfront', 'The planning fee is $35, separate from your travel costs.'],
+  ['A personal contact', 'before, during and after your trip'],
+  ['Booking handled for you', 'Payments go directly to the travel supplier.'],
+  ['A travel insurance quote', 'so you can decide whether to protect your trip'],
 ];
-const dests = [
-  ['Amalfi Coast', 'Dramatic cliffs, charming villages, and sparkling Mediterranean waters.'],
-  ['French Riviera', 'Glamorous harbors, beautiful coastlines, and timeless elegance.'],
-  ['Ibiza', 'Sunlit coves, lively beaches, and golden sunsets.'],
-  ['Maldives', 'Crystal lagoons, overwater villas, and total serenity.'],
+const who = [
+  ['One real person.', 'You talk to me before, during and after your trip.'],
+  ['An established agency behind me.', 'Your booking goes through Enchanted Escapes Travel.'],
+  ['Your card is charged by the supplier.', 'Payments go directly to Disney, the cruise line or the resort. Enchanted Escapes Travel does not charge your card.'],
+  ['Fees upfront.', 'The planning fee is $35, separate from your travel costs.'],
 ];
-const testis = [
-  ['Everything was absolutely exceptional. The yacht was beautiful, the crew was welcoming, and every moment felt thoughtfully planned.', 'Sophia Bennett', 'Private Charter Guest', ''],
-  ['We celebrated our anniversary aboard a stunning yacht. The experience exceeded every expectation, from the service to the scenery.', 'Daniel Morgan', 'Luxury Travel Guest', 'dark'],
-  ['Booking with Journeys by Jaz was effortless. They helped us find the perfect yacht and created a trip we will never forget.', 'Olivia Carter', 'Getaway Guest', ''],
+const faqs = [
+  ['What does a travel agent do, and is it worth it?', "A travel agent researches your options, matches them to your budget, books the trip and stays reachable if plans change. It's worth it when you're comparing resorts, tickets, cruises or cabins across many tabs. For a simple one-stop trip, booking direct may be enough. I send you 2–3 custom options so you can compare real totals."],
+  ['How much does Journeys by Jaz charge, and why a fee?', 'A flat, non-refundable $35 planning fee covers your 2–3 custom options. Good planning takes real time: comparing resorts, sailings, cabins and dates to find what fits your budget. The fee is separate from your travel costs, which you pay directly to the resort, cruise line or other supplier. Please read the service agreement before you pay.'],
+  ['Is it cheaper to book through a travel agent?', 'Not automatically. Resorts, parks and cruise lines set their own prices, so no agent can promise a lower rate. What I can do is find the option that fits your budget and show what’s included before you book, so there are no surprises at checkout.'],
+  ['How much does a vacation cost?', 'It depends on your dates, group size, destination and how you travel. Most trips add up from tickets or activities, lodging, food, transportation and extras. Cruises add gratuities, excursions and travel to the port. I build 2–3 options around your budget and show what’s included and what costs extra, so you can compare real totals.'],
+  ['Can you plan Disney and Universal Orlando vacations?', 'Yes. I plan Walt Disney World, Disneyland and Universal Orlando vacations, comparing resorts, tickets and dining to fit your budget. Tell me your dates, who’s traveling and what you want to spend, and you’ll get 2–3 options that show what’s included and what costs extra.'],
+  ['Can you plan an all-inclusive resort vacation?', 'Yes. I compare all-inclusive resorts for couples, families and groups, such as options in Mexico and the Caribbean, by what’s included, room types, extras and total price. You’ll see what’s covered and what costs extra before you book, so there are no surprises on arrival.'],
+  ['Do you plan cruises from Galveston for Houston-area travelers?', 'Yes. Several cruise lines sail from the Port of Galveston, about an hour from Houston, so you can drive instead of fly. Disney Magic has run 4-, 5- and 7-night trips there. Dates change, so I check the current schedule, then compare sailings, cabins, parking and a pre-cruise hotel night. I work online with Houston-area travelers and clients across the U.S.'],
+  ['Can you plan group trips and reunions?', 'Yes. I plan trips for friend groups, extended families and reunions on cruises, at resorts and at theme parks. I compare options for the whole group, keep the details in one plan, and tell you up front what each choice costs, so everyone knows what to expect.'],
+  ['What do I get, and how do I book?', "You get 2–3 custom options within 3 days, once I have your signed service agreement, the $35 fee and your trip details. Pick your favorite, then complete the secure Enchanted Escapes Travel booking form. It doesn't charge your card. The supplier does, and it can take up to 48 hours. You can pay a deposit or deposit plus remaining payments, and request a travel insurance quote."],
+  ['Is Journeys by Jaz a legitimate travel agency?', 'Journeys by Jaz is an independent travel advisor affiliated with Enchanted Escapes Travel (Enchanted Escapes, LLC) in Cypress, Texas, Florida Seller of Travel #ST40359. The agency states that Disney Destinations designated it an Authorized Disney Vacation Planner. I book through Enchanted Escapes Travel, and you pay the supplier directly.'],
 ];
 ---
-<Base title="Journeys by Jaz" description="Private yacht escapes and unforgettable coastal adventures, curated by Jaz.">
+<Base title="Vacation Planner & Travel Agent | Journeys by Jaz" description="Houston-area travel agent and vacation planner for Disney, Universal Orlando, all-inclusive resorts, cruises and group trips. 2–3 custom options in 3 days.">
   <header class="nav">
     <a class="logo" href="#top">JOURNEYS BY JAZ</a>
-    <Btn href="#contact">Book Your Experience</Btn>
+    <Btn href={plan}>Plan My Trip</Btn>
   </header>
 
   <main id="top">
     <!-- HERO -->
     <div class="hero">
-      <Placeholder w={2560} h={1440} label="Hero background" dark fill />
-      <div class="pill h-in"><b>NEW</b> Discover Your Next Ocean Escape — Explore Our Exclusive Yacht Collection</div>
+      <img class="hero-img" src="./hero.webp" alt="A cruise ship docked in turquoise water under a deep blue sky" width="2000" height="1170" fetchpriority="high" />
+      <div class="pill h-in"><b>$35</b> planning fee · Options in 3 days · No pressure</div>
       <div class="hero-in">
         <div>
-          <div class="eyebrow h-in">Your journey begins at sea</div>
+          <div class="eyebrow h-in">Vacation planner &amp; travel agent</div>
           <h1>
-            <span class="line"><span>Escape the Ordinary.</span></span>
-            <span class="line"><span>Discover Life</span></span>
-            <span class="line"><span>Beyond the Shore.</span></span>
+            <span class="line"><span>Vacations planned</span></span>
+            <span class="line"><span>around your budget.</span></span>
+            <span class="line"><span>Planned for you.</span></span>
           </h1>
         </div>
         <div class="h-in">
-          <p>Experience the freedom of the open sea with Journeys by Jaz. From private yacht escapes to unforgettable coastal adventures, we bring your dream ocean experience to life.</p>
+          <p>Disney, Universal Orlando, all-inclusive resorts and cruises. Tell me your dates and your budget, and in 3 days you’ll get 2–3 custom options with everything included spelled out.</p>
           <div class="row">
-            <Btn href="#yachts" variant="light">Explore Our Yachts</Btn>
-            <Btn href="#destinations" variant="ghost">Discover Destinations</Btn>
+            <Btn href={plan} variant="light">Plan My Trip</Btn>
+            <Btn href="tel:+17138870363" variant="ghost">Call Me</Btn>
           </div>
+          <div class="fee-note">$35 planning fee · Options in 3 days · No pressure</div>
         </div>
       </div>
     </div>
@@ -75,69 +88,58 @@ const testis = [
       <div class="wrap stats">
         {stats.map((s, i) => (
           <div class:list={['stat reveal', s.c]} data-delay={i * 120}>
-            <b data-count={s.n} data-suffix={s.s}>0{s.s}</b><span>{s.l}</span>
+            {s.t ? <b>{s.t}</b> : <b data-count={s.n} data-prefix={s.p} data-suffix={s.s}>{s.p}0{s.s}</b>}
+            <span>{s.l}</span>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- LIFE / SEA -->
+    <!-- PROBLEM -->
     <section class="life">
       <div class="wrap">
-        <div class="kicker reveal"><i>02/</i><span>Life beyond the shore</span></div>
-        <div class="big"><span>Life</span><span class="life-pill"><Placeholder w={640} h={300} label="Pill image" dark /></span><span>Sea</span></div>
-        <p class="words-p">Where every voyage is shaped around you, and every sunset feels like it was made for the moment.</p>
+        <div class="kicker reveal" style="justify-content:center"><i>01/</i><span>Stress-free getaways</span></div>
+        <div class="big"><span>Plan</span><span class="life-pill"><Placeholder w={640} h={300} label="Pill image" dark /></span><span>Relax</span></div>
+        <p class="words-p">Vacations, group trips and stress-free getaways, planned for you.</p>
       </div>
     </section>
 
-    <!-- STORY -->
-    <section style="padding-top:20px">
-      <div class="wrap story">
-        <div class="story-img reveal">
-          <Placeholder w={560} h={620} label="Story image" />
-          <div class="quote">“We believe the best journeys are measured by the moments you create along the way.”<small>Jaz — Founder</small></div>
-        </div>
-        <div class="story-t">
-          <div class="kicker reveal"><i>03/</i><span>Our story</span></div>
-          <h2 class="words">Every Journey Has a Story Worth Telling.</h2>
-          <p class="reveal">Journeys by Jaz is about more than yachts. It is about the moments you create along the way. We specialize in exceptional yacht rental and private charter experiences designed around your lifestyle. Whether you are celebrating something special or simply escaping the everyday, our team makes every detail effortless.</p>
-          <ul class="ticks reveal">
-            <li>Personalized Experiences</li><li>Exceptional Yacht Collection</li>
-            <li>Professional Crew</li><li>Seamless Reservations</li>
-          </ul>
-          <div class="reveal"><Btn href="#contact">Discover Our Story</Btn></div>
-        </div>
+    <section style="padding-top:0">
+      <div class="wrap problem">
+        <h2 class="words">Planning a vacation shouldn’t feel like a second job</h2>
+        <p class="reveal">Between park tickets, resort rooms, cabins and payment dates, one trip can mean twenty open tabs. I compare the options for you, keep the total in view and handle the booking, so you can spend your time looking forward to the trip. Whether it’s a theme-park week, a cruise, an all-inclusive escape, a couples getaway or a trip with friends or family, you get a plan built around your budget.</p>
       </div>
     </section>
 
-    <!-- EXPERIENCES (dark) -->
+    <!-- VACATION TYPES (dark) -->
     <section class="dark-sec">
       <div class="wrap">
-        <SectionHead n="04" kicker="Unforgettable experiences" dark>
-          <Fragment slot="title">Find Your Perfect Way to Explore the Sea.</Fragment>
-          <p>Every ocean escape is different. Discover experiences designed to make your time on the water truly unforgettable.</p>
+        <SectionHead n="02" kicker="Every kind of traveler" dark>
+          <Fragment slot="title">Vacations I plan for every kind of traveler</Fragment>
+          <p>Journeys by Jaz is a vacation planner and travel agent for Disney, Universal Orlando, all-inclusive resort, cruise and group trips.</p>
         </SectionHead>
         <div class="exp">
-          {exps.map(([t, d], i) => (
+          {kinds.map(([t, d], i) => (
             <div class="exp-c reveal" data-delay={i * 120}>
               <Placeholder w={400} h={520} label={t} dark fill />
               <h3>{t}</h3><p>{d}</p>
-              <Btn href="#contact" variant="ghost">Explore Experience</Btn>
+              <Btn href={plan} variant="ghost">Plan My Trip</Btn>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- DIFFERENCE -->
+    <!-- STEPS -->
     <section>
       <div class="wrap">
-        <SectionHead n="05" kicker="The Journeys by Jaz difference">
-          <Fragment slot="title">Exceptional Experiences, Without Compromise.</Fragment>
-          <p>We combine premium yachts, thoughtful planning, and dedicated service to make every journey effortless.</p>
+        <SectionHead n="03" kicker="How it works">
+          <Fragment slot="title">How to plan a Disney vacation on a budget in 3 steps</Fragment>
+          <p>Tell me your budget and dates. I’ll do the comparing.</p>
+          <Btn href={plan}>Plan My Trip</Btn>
         </SectionHead>
-        <div class="diff">
-          {diff.map(([n, t, d, c], i) => (
+        <div class="diff" style="grid-template-columns:repeat(3,1fr)">
+          {steps.map(([n, t, d, c], i) => (
             <div class:list={['diff-c reveal', c]} data-delay={i * 140}>
               <span class="num">{n}</span>
               <div><h3>{t}</h3><p>{d}</p></div>
@@ -147,95 +149,74 @@ const testis = [
       </div>
     </section>
 
-    <!-- YACHTS -->
-    <section id="yachts" style="padding-top:20px">
-      <div class="wrap">
-        <SectionHead n="06" kicker="Our collection">
-          <Fragment slot="title">Find the Yacht That Matches Your Journey.</Fragment>
-          <p>Explore our handpicked collection of exceptional yachts, each offering a unique way to experience the ocean.</p>
-          <Btn href="#contact" variant="out">View All Yachts</Btn>
-        </SectionHead>
-        <div class="grid4">
-          {yachts.map(([tag, name, loc, g, c, p], i) => (
-            <div class="card reveal" data-delay={i * 120}>
-              <div class="imgw"><span class="tag">{tag}</span><Placeholder w={480} h={560} label={name} /></div>
-              <h3>{name}</h3><small>{loc}</small>
-              <div class="chips"><span>{g} Guests</span><span>{c} Cabins</span></div>
-              <div class="price"><span>{p} <small>/ Day</small></span><span class="dot"></span></div>
-            </div>
+    <!-- FEE -->
+    <section style="padding-top:20px">
+      <div class="wrap fee">
+        <div class="fee-l">
+          <div class="kicker reveal"><i>04/</i><span>Planning fee</span></div>
+          <h2 class="words">What your $35 vacation planning fee covers</h2>
+          <p class="reveal"><b>Why I charge a small planning fee.</b> Good planning takes real time: comparing resorts, sailings, cabin categories and dates to find what actually fits your budget. The $35 planning fee covers that research and lets me focus fully on your trip. It’s separate from your travel costs, and it’s a small price next to the hours you’d spend searching on your own.</p>
+          <p class="warn reveal">The planning fee is non-refundable. It covers the time spent on research, consultation and itinerary building. The planning fee is separate from your travel costs (park tickets, resorts, cruises and so on).</p>
+        </div>
+        <ul class="cover">
+          {covers.map(([a, b], i) => (
+            <li class="reveal" data-delay={i * 90}><div><b>{a}</b>{b && <small>{b}</small>}</div></li>
           ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="padding-top:20px">
+      <div class="wrap story">
+        <div class="story-img reveal">
+          <Placeholder w={560} h={620} label="Photo of Jaz" />
+        </div>
+        <div class="story-t">
+          <div class="kicker reveal"><i>05/</i><span>About me</span></div>
+          <h2 class="words">Meet Jaz, your vacation planner</h2>
+          <p class="reveal">I love cruises because you get to see a lot in a short amount of time without constantly packing up and moving from place to place. I also love that everything you need is right there food, entertainment, activities, and relaxation so it feels easy while still giving you a full vacation experience.</p>
+          <p class="reveal" style="margin-top:-8px">I’m an independent travel advisor affiliated with Enchanted Escapes Travel (Enchanted Escapes, LLC), an Authorized Disney Vacation Planner agency in Cypress, Texas. I work online with Houston-area families and travelers across the United States.</p>
         </div>
       </div>
     </section>
 
-    <!-- DESTINATIONS -->
-    <div class="dest" id="destinations">
-      <div class="inner">
-        <SectionHead n="07" kicker="Explore the world">
-          <Fragment slot="title">Extraordinary Destinations. Unforgettable Journeys.</Fragment>
-          <p>From Mediterranean coastlines to tropical islands, discover the destinations that make every voyage special.</p>
-          <Btn href="#contact">Explore All Destinations</Btn>
-        </SectionHead>
-        <div class="grid4">
-          {dests.map(([n, d], i) => (
-            <div class="dest-c reveal" data-delay={i * 120}>
-              <div class="imgw"><Placeholder w={480} h={640} label={n} /><span class="dot go"></span></div>
-              <h3>{n}</h3><p>{d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <!-- TESTIMONIALS -->
-    <section>
-      <div class="wrap">
-        <SectionHead n="08" kicker="Guest experiences">
-          <Fragment slot="title">Moments That Stay With You.</Fragment>
-          <p>Discover why our guests choose Journeys by Jaz for their most memorable ocean experiences.</p>
-        </SectionHead>
-        <div class="testis">
-          {testis.map(([q, n, r, c], i) => (
-            <div class:list={['t reveal', c]} data-delay={i * 140}>
-              <div><div class="qm">“</div><q>{q}</q></div>
-              <div class="who"><Placeholder w={80} h={80} class={c ? 'dark' : ''} /><div>{n}<small>{r}</small></div></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- STEPS -->
-    <section style="padding-top:0">
-      <div class="wrap">
-        <SectionHead n="09" kicker="How it works">
-          <Fragment slot="title">Your Perfect Yacht Experience in Three Easy Steps.</Fragment>
-          <p>Planning your escape should feel as relaxing as the journey itself.</p>
-        </SectionHead>
-        <div class="steps">
-          <div class="s reveal"><span class="num">01</span><div><h3>Choose Your Yacht</h3><p>Browse our curated collection and find the yacht that matches your travel style.</p></div></div>
-          <div class="s dark reveal" data-delay="140"><span class="num">02</span><div><h3>Customize Your Journey</h3><p>Share your destination, dates, and preferences. Our team handles the rest.</p></div></div>
-          <div class="s or reveal" data-delay="280"><span class="num">03</span><div><h3>Set Sail &amp; Enjoy</h3><p>Arrive, step aboard, and embark on an experience designed around you.</p></div></div>
-        </div>
-        <div class="steps-img reveal"><Placeholder w={1180} h={520} label="Wide banner" /></div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
     <section style="padding-top:20px">
       <div class="wrap">
-        <SectionHead n="10" kicker="Life on the water">
-          <Fragment slot="title">A Glimpse Into the Journeys by Jaz Lifestyle.</Fragment>
-          <p>Explore the beauty, freedom, and unforgettable moments that make every journey special.</p>
+        <SectionHead n="06" kicker="What that means for you">
+          <Fragment slot="title">What that means for you</Fragment>
+          <p>Real person, established agency, no surprises.</p>
         </SectionHead>
-        <div class="gal">
-          <div class="reveal"><Placeholder w={620} h={820} label="Gallery 1" /></div>
-          <div class="reveal" data-delay="100" data-parallax="-30"><Placeholder w={300} h={400} label="Gallery 2" /></div>
-          <div class="reveal" data-delay="200" data-parallax="30"><Placeholder w={300} h={400} label="Gallery 3" /></div>
-          <div class="reveal" data-delay="300" data-parallax="-30"><Placeholder w={300} h={400} label="Gallery 4" /></div>
-          <div class="reveal" data-delay="400" data-parallax="30"><Placeholder w={300} h={400} label="Gallery 5" /></div>
+        <div class="grid4">
+          {who.map(([t, d], i) => (
+            <div class:list={['diff-c reveal', i === 1 ? 'dark' : i === 3 ? 'or' : '']} data-delay={i * 120} style="min-height:260px">
+              <span class="num">0{i + 1}</span>
+              <div><h3>{t}</h3><p>{d}</p></div>
+            </div>
+          ))}
         </div>
       </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="wrap">
+        <SectionHead n="07" kicker="FAQs">
+          <Fragment slot="title">Frequently asked questions</Fragment>
+          <p>Straight answers about fees, booking and what to expect.</p>
+        </SectionHead>
+        <div class="faq">
+          {faqs.map(([q, a], i) => (
+            <details class="reveal" data-delay={Math.min(i, 4) * 60}><summary>{q}</summary><p>{a}</p></details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2 class="words">Tell me your budget. Get your options in 3 days.</h2>
+      <div class="reveal"><Btn href={plan} variant="accent">Plan My Trip</Btn></div>
     </section>
   </main>
 
@@ -243,15 +224,18 @@ const testis = [
     <div class="wrap">
       <div class="fgrid">
         <div class="reveal">
-          <p>Journeys by Jaz creates exceptional yacht experiences for travelers seeking freedom, comfort, and unforgettable moments at sea.</p>
-          <Btn href="mailto:hello@journeysbyjaz.com" variant="accent">Book Your Yacht</Btn>
+          <p>Disney travel agent serving Houston, Texas and families across the U.S.</p>
+          <Btn href={plan} variant="accent">Plan My Trip</Btn>
         </div>
-        <div class="reveal" data-delay="100"><h4>Explore</h4><ul><li>Luxury Motor Yachts</li><li>Premium Sailing Yachts</li><li>Superyachts</li></ul></div>
-        <div class="reveal" data-delay="200"><h4>Destinations</h4><ul><li>Amalfi Coast</li><li>French Riviera</li><li>Ibiza</li><li>Maldives</li></ul></div>
-        <div class="reveal" data-delay="300"><h4>Contact</h4><ul><li>hello@journeysbyjaz.com</li></ul></div>
+        <div class="reveal" data-delay="100"><h4>Email</h4><ul><li><a href={`mailto:${email}`}>{email}</a></li></ul></div>
+        <div class="reveal" data-delay="200"><h4>Phone</h4><ul><li><a href="tel:+17138870363">(713) 887-0363</a></li></ul></div>
+        <div class="reveal" data-delay="300"><h4>Agency</h4><ul><li>Enchanted Escapes Travel</li><li>Cypress, TX</li><li>Florida Seller of Travel #ST40359</li></ul></div>
       </div>
       <div class="wordmark reveal"><span>Journeys by Jaz</span></div>
-      <div class="legal"><span>© 2026 Journeys by Jaz. All Rights Reserved.</span></div>
+      <div class="legal" style="flex-direction:column;gap:10px">
+        <p class="legal-p">Journeys by Jaz is an independent travel advisor affiliated with Enchanted Escapes Travel (Enchanted Escapes, LLC), Cypress, TX. Florida Seller of Travel #ST40359.</p>
+        <p class="legal-p">Prices and availability are subject to change without notice. As to Disney artwork and logos: © Disney. Disney Cruise Line ships’ registry: The Bahamas. Journeys by Jaz is not owned or operated by The Walt Disney Company.</p>
+      </div>
     </div>
   </footer>
 </Base>

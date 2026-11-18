@@ -24,14 +24,15 @@
       cio.unobserve(el);
       const to = Number(el.dataset.count);
       const suffix = el.dataset.suffix ?? "";
+    const prefix = el.dataset.prefix ?? "";
       if (reduce) {
-        el.textContent = to + suffix;
+        el.textContent = prefix + to + suffix;
         continue;
       }
       const t0 = performance.now();
       const tick = (t) => {
         const p = clamp((t - t0) / 1600);
-        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suffix;
+        el.textContent = prefix + Math.round(to * (1 - Math.pow(1 - p, 3))) + suffix;
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
@@ -62,7 +63,7 @@
   });
   const pill = document.querySelector(".life-pill");
   const nav = document.querySelector(".nav");
-  const heroBg = document.querySelector(".hero .ph");
+  const heroBg = document.querySelector(".hero .hero-img");
   let ticking = false;
   function update() {
     ticking = false;
