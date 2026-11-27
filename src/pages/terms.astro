@@ -1,0 +1,106 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { EMAIL, PLAN_URL, MAILING_ADDRESS, LEGAL_UPDATED } from '../data/site';
+---
+<LegalLayout
+  title="Terms of Service | Journeys by Jaz"
+  heading="Terms of Service"
+  description="Terms for using the Journeys by Jaz website and vacation planning services, including the planning fee, bookings and payments, text messages and cancellations."
+  path="/terms"
+  updated={LEGAL_UPDATED}
+>
+  <p>These terms apply to your use of the <strong>Journeys by Jaz</strong> website, including the travel list and planning form, and to our vacation planning services. Journeys by Jaz is an independent travel advisor affiliated with Enchanted Escapes Travel (Enchanted Escapes, LLC), an Authorized Disney Vacation Planner agency in Cypress, Texas. Florida Seller of Travel #ST40359. By using this website, you agree to these terms. If you do not agree, please do not use the site.</p>
+
+  <h2>General information only</h2>
+  <p>Information on this website is general and is not legal, financial or insurance advice. Using this website or sending us a form does not create a client relationship. A client relationship starts only when we both agree on the services in a signed service agreement and the planning fee is paid. If this page and your service agreement differ, the service agreement controls for your engagement with us.</p>
+
+  <h2>Planning fee and service</h2>
+  <ul>
+    <li>Our planning service has a flat fee of <strong>$35</strong>, which is separate from the cost of your travel.</li>
+    <li>Once we have your signed service agreement, the planning fee and your trip details, we send you 2–3 custom vacation options, normally within 3 days. Timing can vary when we need more information from you or during very busy periods.</li>
+    <li><strong>The planning fee is non-refundable.</strong> It covers our time spent on research, consultation and itinerary building, whether or not you decide to book.</li>
+    <li>We are an independent travel advisor. <strong>We are not the supplier of your travel.</strong> Airlines, cruise lines, resorts, hotels, parks and tour operators provide the travel services, and their own terms and policies apply to them.</li>
+  </ul>
+
+  <h2>Bookings and payments</h2>
+  <ul>
+    <li>After you choose an option, you complete a secure booking form with Enchanted Escapes Travel, and we book the travel for you.</li>
+    <li><strong>Your travel payments go directly to the supplier</strong> (for example, Disney, the cruise line or the resort). Your card is charged by the supplier, which can take up to 48 hours. Enchanted Escapes Travel does not charge your card.</li>
+    <li>You may be able to pay a deposit, or a deposit plus remaining payments by the supplier’s due dates. You are responsible for paying on time. Late or missed payments can lead to cancellation by the supplier and loss of deposits.</li>
+    <li>A booking is confirmed only when the supplier confirms it.</li>
+  </ul>
+
+  <h2>Prices and availability</h2>
+  <p>Resorts, parks and cruise lines set their own prices. Prices, fees, taxes, itineraries and availability can change without notice until your booking is confirmed and paid as the supplier requires. We do not promise that booking through us is cheaper than booking directly. Quotes are estimates based on what we know when we prepare them. We show what is included and what costs extra so you can compare, but please review every supplier detail before you book.</p>
+
+  <h2>Changes and cancellations</h2>
+  <p>Supplier cancellation, change and refund policies apply to your travel and can include penalties or no refund. Please read them before you book. If you need to change or cancel, contact us as soon as possible and we will help where we can, but we cannot override a supplier’s policies. Our planning fee is not refundable.</p>
+
+  <h2>Travel insurance</h2>
+  <p>We can provide a travel insurance quote so you can decide whether to protect your trip. Insurance is optional, is provided by third-party insurers under their own terms, and may not cover every situation. Some coverage options must be bought within a limited time after your first trip payment. You are responsible for reading the policy and deciding whether to buy it.</p>
+
+  <h2>Your responsibilities</h2>
+  <ul>
+    <li>Give us accurate and complete information, including traveler names exactly as they appear on identification and dates of birth.</li>
+    <li>Make sure every traveler has valid travel documents (such as passports, visas and any required health documents) and meets age, health and entry requirements. These rules change, and we are not responsible for denied boarding or entry caused by missing or invalid documents.</li>
+    <li>Review confirmations and itineraries carefully and tell us right away if something is wrong.</li>
+    <li>Follow the supplier’s rules, safety instructions and codes of conduct.</li>
+  </ul>
+
+  <h2>Travel risks</h2>
+  <p>Travel has risks, including weather, delays, cancellations, itinerary changes, illness, accidents, strikes and security or political events outside our control. You choose to travel at your own risk. We do not control and are not responsible for the services or conduct of suppliers or other third parties.</p>
+
+  <h2>Text message terms</h2>
+  <p>These terms apply if you agree to receive text messages from Journeys by Jaz.</p>
+  <ul>
+    <li><strong>Two separate, optional programs.</strong> Service-related texts cover your trip request, planning agreement and fee, delivery of your options, booking confirmations, payment reminders and trip updates. Promotional texts cover travel tips, deals, offers and news. Each needs your own consent, given by checking its own box, which is never pre-checked.</li>
+    <li><strong>Consent is optional.</strong> You do not have to agree to text messages to request a trip plan or to book travel. Consent is not a condition of purchase.</li>
+    <li><strong>Message frequency varies.</strong> How often you get texts depends on your activity with us and which programs you joined.</li>
+    <li><strong>Message and data rates may apply.</strong> Your mobile carrier sets these charges.</li>
+    <li><strong>Stop or get help.</strong> Reply <strong>STOP</strong> at any time to cancel. Reply <strong>HELP</strong> for help, or email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. Replying STOP ends all texts from that number. To keep service-related texts and stop promotional ones, email us. You can join again at any time through our forms.</li>
+    <li><strong>Carriers are not liable.</strong> Wireless carriers are not liable for delayed or undelivered messages.</li>
+    <li><strong>Your number.</strong> Give us only a number you own or are authorized to use, and tell us if it changes.</li>
+    <li><strong>Privacy.</strong> We do not share mobile numbers or text-message consent with third parties or affiliates for their marketing or promotional purposes. Read our <a href="./privacy">Privacy Policy</a>.</li>
+  </ul>
+
+  <h2>Age requirement</h2>
+  <p>You must be at least 18 years old to use this website, submit our forms, book travel through us or agree to receive text messages from us.</p>
+
+  <h2>Using this website</h2>
+  <ul>
+    <li>Use the site only for lawful purposes.</li>
+    <li>Do not try to gain unauthorized access to the site, disrupt how it works, introduce malware or use it to send spam.</li>
+    <li>Give accurate information in our forms, and do not submit information about other people without their permission.</li>
+    <li>Do not send payment card numbers, passport numbers or Social Security numbers through our forms, email or text.</li>
+  </ul>
+
+  <h2>Our content</h2>
+  <p>The text, logo, images and design of this website belong to Journeys by Jaz or are used with permission. You may view and print pages for your own personal use. Please do not copy or reuse our content for commercial purposes without our permission. Disney artwork and logos are © Disney. Journeys by Jaz is not owned or operated by The Walt Disney Company. Other trademarks belong to their owners.</p>
+
+  <h2>Accuracy and availability</h2>
+  <p>We work to keep this site accurate and up to date, but prices, schedules and supplier rules change, and we cannot promise that every page is current or free of errors. The site is provided “as is” and may be unavailable from time to time.</p>
+
+  <h2>Links to other websites</h2>
+  <p>This site links to other websites and tools, such as our <a href={PLAN_URL}>travel list form</a>, travel suppliers and the Enchanted Escapes Travel booking form. We do not control them and are not responsible for their content or practices. Their own terms and policies apply.</p>
+
+  <h2>Limitation of liability</h2>
+  <p>To the fullest extent allowed by law, Journeys by Jaz, its owner and its affiliates are not liable for any act, omission, delay, injury, loss or expense caused by travel suppliers or other third parties, or by events outside our reasonable control. Our total liability to you for any claim related to our services or this website is limited to the planning fee you paid us. We are not liable for indirect, incidental, special, consequential or punitive damages, such as lost vacation time. Nothing in these terms limits liability that cannot be limited by law.</p>
+
+  <h2>Indemnification</h2>
+  <p>To the extent allowed by law, you agree to defend and hold harmless Journeys by Jaz, its owner and its affiliates from claims, losses and expenses (including reasonable attorneys’ fees) that come from your misuse of the website, your breach of these terms or inaccurate information you give us.</p>
+
+  <h2>Privacy and security</h2>
+  <p>Our <a href="./privacy">Privacy Policy</a> explains how we handle your information and how we protect it.</p>
+
+  <h2>Governing law and disputes</h2>
+  <p>These terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules. If you have a concern, please contact us first at <a href={`mailto:${EMAIL}`}>{EMAIL}</a> so we can try to resolve it informally. A dispute that cannot be resolved informally will be brought in the state or federal courts located in Texas, unless the law where you live requires otherwise.</p>
+
+  <h2>Changes to these terms</h2>
+  <p>We may update these terms from time to time. The date at the top shows when they last changed. Continuing to use the site means you accept the updated terms. Changes do not affect a service agreement you have already signed.</p>
+
+  <h2>General</h2>
+  <p>If any part of these terms is found unenforceable, the rest stays in effect. Our not enforcing a part is not a waiver of it. These terms, our Privacy Policy and any signed service agreement are the entire agreement between you and us about this website and our services.</p>
+
+  <h2>Contact us</h2>
+  <p>Questions about these terms? Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or call <a href="tel:+17138870363">(713) 887-0363</a>.{MAILING_ADDRESS && <Fragment> Our business mailing address is {MAILING_ADDRESS}.</Fragment>} See also our <a href="./privacy">Privacy Policy</a>.</p>
+</LegalLayout>

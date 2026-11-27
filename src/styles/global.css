@@ -353,14 +353,20 @@ section[id],.exp-c[id]{scroll-margin-top:110px}
 .legal-page li::marker{color:var(--accent)}
 .legal-page a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .legal-page strong{color:var(--ink);font-weight:600}
-.legal-contact{margin-top:44px;padding:22px 24px;background:var(--soft);border-radius:20px}
-.legal-foot{background:var(--ink);color:#fff;margin:14px;border-radius:30px;padding:40px 0 34px}
-.legal-foot nav{display:flex;flex-wrap:wrap;gap:8px 26px;margin-bottom:18px}
-.legal-foot a{opacity:.85;transition:opacity .2s}.legal-foot a:hover{opacity:1;text-decoration:underline}
-.legal-foot p{opacity:.55;font-size:13px;max-width:760px}
-.foot-links{display:flex;flex-wrap:wrap;gap:6px 22px;margin:22px 0 4px;font-size:14px}
-.foot-links a{opacity:.8;transition:opacity .2s}.foot-links a:hover{opacity:1;text-decoration:underline}
 @media(max-width:860px){.legal-page{padding:50px 20px 70px}.legal-nav .brand{display:none}}
 
 .credit a{text-decoration:underline;text-underline-offset:3px;transition:color .2s}.credit a:hover{color:#fff}
 .legal-foot .credit{margin-top:10px}
+
+/* ---------- footer: legal column + bottom bar ---------- */
+.fgrid li a{transition:opacity .2s}.fgrid li a:hover{text-decoration:underline;opacity:1}
+.foot-bar{display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:14px}
+.foot-bar>span{opacity:.75}
+.foot-bar nav{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:center}
+.foot-bar a{opacity:.85;transition:opacity .2s}.foot-bar a:hover{opacity:1;text-decoration:underline}
+.foot-bar .credit{opacity:.6}.foot-bar .credit a{opacity:1;text-decoration:underline;text-underline-offset:3px}
+.foot-bar+.legal,.foot-bar+.legal-p{margin-top:22px}
+.legal-foot{background:var(--ink);color:#fff;margin:14px;border-radius:30px;padding:10px 0 34px}
+.legal-foot .foot-bar{margin-top:30px}
+.legal-foot .legal-p{margin:18px 0 0}
+@media(max-width:700px){.foot-bar{flex-direction:column;align-items:flex-start}}

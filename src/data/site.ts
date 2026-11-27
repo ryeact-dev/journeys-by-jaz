@@ -55,3 +55,8 @@ export const faqs: [string, string][] = [
   ['Is Journeys by Jaz a legitimate travel agency?', 'Journeys by Jaz is an independent travel advisor affiliated with Enchanted Escapes Travel (Enchanted Escapes, LLC) in Cypress, Texas, Florida Seller of Travel #ST40359. The agency states that Disney Destinations designated it an Authorized Disney Vacation Planner. I book through Enchanted Escapes Travel, and you pay the supplier directly.'],
 ];
 
+
+// Optional: set a business mailing address and it will appear on the Privacy Policy and Terms pages.
+// Carriers reviewing text-message (A2P 10DLC) registrations often look for one. Leave '' to hide it.
+export const MAILING_ADDRESS = '';
+export const LEGAL_UPDATED = '2026-11-27';

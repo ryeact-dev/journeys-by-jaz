@@ -40,8 +40,8 @@ ${who.map(([a, b]) => `- **${a}** ${b}`).join('\n')}
 ${faqs.map(([q, a]) => `### ${q}\n${a}`).join('\n\n')}
 
 ## Contact and legal
-- Privacy Policy: ${SITE}/privacy-policy
-- Terms of Service: ${SITE}/terms-of-service
+- Privacy Policy: ${SITE}/privacy
+- Terms of Service: ${SITE}/terms
 - Phone: ${PHONE_DISPLAY}
 - Email: ${EMAIL}
 - Start planning: ${PLAN_URL}

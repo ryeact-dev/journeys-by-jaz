@@ -1,3 +1,8 @@
 # Old GoHighLevel site paths -> new homepage
 /home / 301
 /home/ / 301
+# Renamed legal pages
+/privacy-policy /privacy 301
+/privacy-policy/ /privacy 301
+/terms-of-service /terms 301
+/terms-of-service/ /terms 301

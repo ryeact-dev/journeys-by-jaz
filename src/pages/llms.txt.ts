@@ -28,8 +28,8 @@ ${kinds.map(([t, d], i) => `- [${t}](${SITE}/#${anchors[i]}): ${d}`).join('\n')}
 - [Frequently asked questions](${SITE}/#faq): Fees, whether agents are cheaper, vacation costs, Disney and Universal planning, all-inclusive resorts, Galveston cruises, group trips, how booking works, legitimacy.
 
 ## Legal
-- [Privacy Policy](${SITE}/privacy-policy): What personal information is collected, how it is used and shared, and your choices.
-- [Terms of Service](${SITE}/terms-of-service): Planning fee, bookings and payments, cancellations, responsibilities and liability.
+- [Privacy Policy](${SITE}/privacy): What personal information is collected, how it is used and shared, and your choices.
+- [Terms of Service](${SITE}/terms): Planning fee, bookings and payments, cancellations, responsibilities and liability.
 
 ## Optional
 - [Full site content in one file](${SITE}/llms-full.txt): Complete text of the site, including every FAQ answer.

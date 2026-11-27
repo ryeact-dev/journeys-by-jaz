@@ -28,14 +28,14 @@ export function GET() {
 ${imgXml}
   </url>
   <url>
-    <loc>${SITE}/privacy-policy</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>${SITE}/privacy</loc>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>${SITE}/terms-of-service</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>${SITE}/terms</loc>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
