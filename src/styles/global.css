@@ -361,3 +361,6 @@ section[id],.exp-c[id]{scroll-margin-top:110px}
 .foot-links{display:flex;flex-wrap:wrap;gap:6px 22px;margin:22px 0 4px;font-size:14px}
 .foot-links a{opacity:.8;transition:opacity .2s}.foot-links a:hover{opacity:1;text-decoration:underline}
 @media(max-width:860px){.legal-page{padding:50px 20px 70px}.legal-nav .brand{display:none}}
+
+.credit a{text-decoration:underline;text-underline-offset:3px;transition:color .2s}.credit a:hover{color:#fff}
+.legal-foot .credit{margin-top:10px}
